@@ -493,7 +493,7 @@
     <main>
         <div class="container">
             <!-- About Section -->
-            <section id="about">
+            <section id="about" data-aos="fade-up">
                 <h2 class="section-title">About Me</h2>
                 <div class="about-content">
                     <p>I'm a passionate Data Engineer with over 4 years of experience specializing in real-time data systems and cloud infrastructure. I have a Master's degree in Information Technology from California State University, Long Beach, where I developed a deep understanding of scalable data architectures.</p>
@@ -508,7 +508,7 @@
 
             <!-- Projects Section -->
             <section id="projects">
-                <h2 class="section-title">Featured Projects</h2>
+                <h2 class="section-title" data-aos="fade-right">Featured Projects</h2>
                 <div class="projects-grid">
                     <div class="project-card">
                         <h3 class="project-title">Real-time Fraud Detection Pipeline</h3>
@@ -753,6 +753,17 @@
                     <a href="https://raw.githubusercontent.com/RaviTeja5398/sairaviteja-portfolio/main/SaiRaviTeja_DE_Resume.pdf" class="download-btn" target="_blank">Download Resume</a>
                 </div>
             </section>
+            
+                <section id="testimonials" data-aos="fade-up">
+          <h2 class="section-title">What People Say</h2>
+          <div class="about-content">
+            <blockquote style="font-style: italic; margin-bottom: 20px;">
+              "Ravi is a sharp engineer who brings real clarity to data chaos. He helped us cut fraud detection latency in half."
+            </blockquote>
+            <p style="text-align: right; font-weight: bold;">– Senior Engineer, Payoneer</p>
+          </div>
+        </section>
+
 
             <!-- Contact Section -->
             <section id="contact">
@@ -781,5 +792,13 @@
             <p>&copy; 2025 Sai Ravi Teja. All rights reserved.</p>
         </div>
     </footer>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    once: true, // animations happen once as you scroll
+    duration: 800, // animation duration in ms
+    easing: 'ease-in-out', // smooth style
+  });
+</script>
 </body>
 </html>
