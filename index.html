@@ -15,6 +15,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
     <style>
         /* CSS Reset and Base Styles */
         * {
@@ -23,29 +25,30 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+            html {
+        scroll-behavior: smooth;
+        height: auto;
+        min-height: 100%;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: #888 #1e293b;
+    }
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: #e2e8f0;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-            min-height: 100vh;
-        }
+    :root {
+        scroll-padding-top: 100px;
+    }
 
         /* Container and Layout */
         .container {
-            max-width: 1000px;
+            max-width: 1280px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         /* Header Styles */
         header {
-            background:linear-gradient(135deg, rgba(99,102,241,0.8), rgba(139,92,246,0.8)),
-            url('images/banner_data-engineering.webp') center/cover no-repeat;
+            background:linear-gradient(135deg, rgba(53, 54, 124, 0.8), rgba(65, 43, 116, 0.8)),
+            url('images/wp4748439.jpg') center/cover no-repeat;
             color: white;
             padding: 80px 0;
             text-align: center;
@@ -141,37 +144,119 @@
 
         /* Section Headings */
         .section-title {
-            font-size: 2.2rem;
-            font-weight: 600;
-            margin-bottom: 40px;
-            color: #f8fafc;
-            text-align: left;
-            position: relative;
-            padding-bottom: 15px;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 40px;
+        text-align: center;
+        position: relative;
+        color: #f8fafc;
         }
 
         .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            border-radius: 2px;
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        border-radius: 2px;
         }
 
         /* About Section */
         .about-content {
-            background: rgba(30, 41, 59, 0.5);
-            backdrop-filter: blur(10px);
+            background: #111827;
+           
             padding: 40px;
             border-radius: 20px;
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            font-size: 1.1rem;
-            line-height: 1.8;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
+
+        .about-intro {
+        text-align: center;
+        max-width: 900px;
+        margin: 0 auto 20px auto;
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: #cbd5e1;
+        }
+
+        .about-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-top: 40px;
+        }
+
+        .about-left {
+        flex: 1;
+        min-width: 300px;
+        max-width: 500px;
+        }
+
+        .about-subheading {
+        font-size: 1.7rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        color: #f8fafc;
+        }
+
+        .about-left p {
+        margin-bottom: 20px;
+        color: #cbd5e1;
+        font-size: 1.1rem;
+        line-height: 1.7;
+        }
+
+        .about-highlights {
+        flex: 1.2;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        }
+
+        .highlight-card {
+        background: #111827;
+        border-radius: 14px;
+        padding: 14px;
+        text-align: center;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        transition: transform 0.2s ease;
+        }
+
+        .highlight-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 28px rgba(99,102,241,0.15);
+        }
+
+        .highlight-card i {
+        font-size: 1.5rem;
+        color: #6366f1;
+        margin-bottom: 10px;
+        }
+
+        .highlight-card h4 {
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: #f1f5f9;
+        margin-bottom: 6px;
+        }
+
+        .highlight-card p {
+        font-size: 0.75rem;
+        color: #94a3b8;
+        line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+        .about-grid {
+            flex-direction: column;
+        }
+        }
+
 
         .about-content p {
             margin-bottom: 20px;
@@ -183,28 +268,23 @@
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
         }
-
-        .project-card {
-            background: rgba(30, 41, 59, 0.6);
-            backdrop-filter: blur(15px);
-            padding: 35px;
-            border-radius: 20px;
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
+        .project-card 
+        {
+        background-color: #111827; /* slate-800 */
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 24px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6, #d946ef);
+        .project-card.resume-style {
+        text-align: center;
+        margin-bottom: 40px; /* reduce space */
         }
 
+        
+        
         .project-card:hover {
             transform: translateY(-10px) scale(1.02);
             box-shadow: 0 25px 50px rgba(99, 102, 241, 0.2);
@@ -279,9 +359,21 @@
         }
 
         .skill-list li {
-            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 6px 0;
             color: #cbd5e1;
             font-weight: 500;
+        }
+
+        .skill-icon {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+        margin-right: 4px;
+        flex-shrink: 0;
         }
 
         /* Resume Section */
@@ -346,9 +438,10 @@
             background-clip: text;
             transition: all 0.3s ease;
         }
-
-        .contact-info a:hover {
-            text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+        .contact-intro {
+        color: #cbd5e1;
+        font-size: 1.05rem;
+        margin-bottom: 24px;
         }
 
         /* Footer */
@@ -461,7 +554,192 @@
                 transition: none;
             }
         }
-    </style>
+
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0B0F19;
+      color: #e2e8f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 0px 20px;
+    }
+
+    .experience-card {
+      background: #1e293b;
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+    }
+
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .experience-card .job-points {
+    margin-left: 20px; 
+    padding-left: 20px; 
+    color: #cbd5e1;
+    }
+
+    .job-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 0 6px 0;
+      color: #f8fafc;
+    }
+
+    .company-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #60a5fa;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .meta-info {
+      text-align: right;
+      font-size: 0.95rem;
+      color: #94a3b8;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .meta-info i {
+      margin-right: 6px;
+      font-size: 1rem;
+    }
+
+    .job-points {
+      padding-left: 20px;
+      margin-top: 10;
+      padding-left = none;
+      color: #e2e8f0;
+    }
+
+    .job-points li::before {
+    content: "▹";
+    color: #6366f1;
+    position: absolute;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    }
+
+    .tech-section {
+      margin-top: 24px;
+      border-top: 1px solid #334155;
+      padding-top: 16px;
+    }
+
+    .tech-label {
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #f1f5f9;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tech-tags span {
+      background: #334155;
+      color: #f1f5f9;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 6px 12px;
+      border-radius: 12px;
+    }
+
+    /* resume */
+        .resume-card,
+        .contact-card {
+        background-color: #111827;
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 24px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .resume-card:hover,
+        .contact-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 25px 50px rgba(99, 102, 241, 0.2);
+        }
+
+        .resume-text {
+                color: #cbd5e1;
+                margin-bottom: 20px;
+                line-height: 1.7;
+            }
+
+    .resume-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
+    }
+
+    
+/*contact*/
+    .contact-grid {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        color: #94a3b8;
+        font-size: 0.95rem;
+        }
+
+        .contact-grid a {
+        color: #3b82f6;
+        text-decoration: none;
+        }
+
+        .contact-grid i {
+        color: #3b82f6; /* or #8b5cf6 */
+        margin-right: 8px;
+        font-size: 1.2rem;
+        vertical-align: middle;
+        }
+
+        .contact-grid a:hover {
+        text-decoration: underline;
+        }
+
+        #experience,
+        #education {
+        margin-top: 60px;
+        margin-bottom: 60px;
+        }
+
+     </style>
+
+   
+  
 </head>
 <body>
     <!-- Header Section -->
@@ -469,7 +747,7 @@
         <div class="container">
             <div class="header-content">
                 <h1>Sai Ravi Teja</h1>
-                <p class="subtitle">Data Engineer | ETL & Real-Time Pipelines | AWS & Azure | Kafka, Flink, Airflow | SQL, Python | Snowflake | ML Integration | AWS Certified</p>
+                <p class="subtitle"> Data Engineer | Data Analyst</p>
             </div>
         </div>
     </header>
@@ -484,7 +762,7 @@
                 <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#resume">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -492,23 +770,67 @@
     <!-- Main Content -->
     <main>
         <div class="container">
-            <!-- About Section -->
-            <section id="about" data-aos="fade-up">
-                <h2 class="section-title">About Me</h2>
-                <div class="about-content">
-                    <p>I'm a passionate Data Engineer with over 4 years of experience specializing in real-time data systems and cloud infrastructure. I have a Master's degree in Information Technology from California State University, Long Beach, where I developed a deep understanding of scalable data architectures.</p>
-                    
-                    <p>My expertise lies in building robust data pipelines that can handle massive volumes of information while maintaining high performance and reliability. I love working with cutting-edge technologies like Apache Kafka, Flink, and Snowflake to solve complex data challenges in fast-paced environments.</p>
-                    
-                    <p>Currently at Payoneer, I focus on fraud detection systems and compliance-driven data solutions. Previously at Verizon, I worked on network analytics and real-time monitoring systems. I'm particularly interested in the intersection of machine learning and data engineering, where real-time insights can drive immediate business value.</p>
-
-                    <p>I thrive in collaborative environments where I can combine technical expertise with business understanding to deliver solutions that make a real impact. Whether it's optimizing query performance, ensuring data quality, or designing scalable architectures, I'm always looking for ways to turn data into actionable insights.</p>
+           
+           <!-- About Section -->
+        <section id="about" class="about-section" data-aos="fade-up">
+            <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p class="about-intro">
+                I'm a data engineer with 4+ years of experience designing scalable pipelines, real-time analytics, and machine learning workflows. I thrive on transforming messy data into insight and helping teams make better decisions faster.
+            </p>
+            <p class="about-intro">
+                I design pipelines with clarity, scalability, and real-world impact in mind — from data ingestion to insight.
+            </p>
+            <div class="about-grid">
+                <div class="about-left">
+                <h3 class="about-subheading">Professional Journey</h3>
+                <p>
+                    From enabling fraud detection at Payoneer to building real-time platforms at Verizon, I’ve led and contributed to high-impact data systems. I specialize in Kafka, Flink, Airflow, and Snowflake, and enjoy solving fast-moving problems in distributed environments.
+                </p>
+                <p>
+                    I’m a strong believer in readable code, clean architecture, and aligning data infrastructure with product goals.
+                </p>
                 </div>
-            </section>
+                <div class="about-highlights">
+                <div class="highlight-card">
+                    <i class="ph ph-trend-up"></i>
+                    <h4>38% Latency Cut</h4>
+                    <p>Kafka pipeline for real-time fraud detection</p>
+                </div>
+                <div class="highlight-card">
+                    <i class="ph ph-sliders-horizontal"></i>
+                    <h4>28% Accuracy Gain</h4>
+                    <p>ML model boosted via Flink + SageMaker</p>
+                </div>
+                <div class="highlight-card">
+                    <i class="ph ph-clock-clockwise"></i>
+                    <h4>25% Faster ETL</h4>
+                    <p>Streamlined Spark pipelines with Airflow</p>
+                </div>
+                <div class="highlight-card">
+                    <i class="ph ph-database"></i>
+                    <h4>50% Dashboard Boost</h4>
+                    <p>Snowflake schema redesign for Looker</p>
+                </div>
+                <div class="highlight-card">
+                    <i class="ph ph-users-three"></i>
+                    <h4>Cross-Team Collab</h4>
+                    <p>Partnered with DS & PMs to align on KPIs</p>
+                </div>
+                <div class="highlight-card">
+                    <i class="ph ph-cloud-arrow-up"></i>
+                    <h4>Cloud-Native ETL</h4>
+                    <p>Orchestrated pipelines on Azure + Databricks with Airflow</p>
+                </div>          
+                </div>
+            </div>
+            </div>
+        </section>
+  
 
             <!-- Projects Section -->
             <section id="projects">
-                <h2 class="section-title" data-aos="fade-right">Featured Projects</h2>
+                <h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
                 <div class="projects-grid">
                     <div class="project-card">
                         <h3 class="project-title">Real-time Fraud Detection Pipeline</h3>
@@ -555,74 +877,171 @@
             </section>
 
             <!-- Skills Section -->
-            <section id="skills" data-aos="fade-up" data-aos-delay="100">
-                <h2 class="section-title">Technical Skills</h2>
+            <section id="skills">
+                <h2 class="section-title" data-aos="fade-up">Technical Skills</h2>
                 <div class="skills-grid">
                     <div class="skill-category">
                         <h3>Programming Languages</h3>
                         <ul class="skill-list">
-                            <li>Python</li>
-                            <li>SQL</li>
-                            <li>Scala</li>
-                            <li>Java</li>
+                            <li>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="skill-icon">
+                                Python
+                              </li>
+                              <li>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="skill-icon">
+                                Java
+                              </li>
+                              <li>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scala/scala-original.svg" alt="Scala" class="skill-icon">
+                                Scala
+                              </li>
+                              <li>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" class="skill-icon">
+                                SQL
+                              </li>
                         </ul>
                     </div>
 
                     <div class="skill-category">
                         <h3>Big Data Technologies</h3>
                         <ul class="skill-list">
-                            <li>Apache Kafka</li>
-                            <li>Apache Flink</li>
-                            <li>Apache Spark</li>
-                            <li>Apache Airflow</li>
+                            <li>
+                                <img src="https://imgs.search.brave.com/SPcw2yvucK-BAznDlQgNQSH8zkCbHOWj_K0cCk1Gy8g/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YXJlc291cmNlLnNm/bzIuZGlnaXRhbG9j/ZWFuc3BhY2VzLmNv/bS93cC1jb250ZW50/L3VwbG9hZHMvMjAy/NC8wNi8yMjEwMzIy/NC9LYWZrYS1Mb2dv/LVdoaXRlLnBuZw"
+                                     alt="Apache Kafka"
+                                     class="skill-icon"
+                                     style="height: 20px; vertical-align: middle; margin-right: 8px; background: white; border-radius: 4px; padding: 2px;">
+                                Apache Kafka
+                              </li>
+                              <li>
+                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/apacheairflow/apacheairflow-original.svg" alt="Airflow" class="skill-icon">
+                                Apache Airflow
+                              </li>
+                              
+                                <li>
+                                    <img src="https://flink.apache.org/img/logo/png/200/flink_squirrel_200_color.png"
+                                         alt="Apache Flink"
+                                         class="skill-icon"
+                                         style="height: 20px; vertical-align: middle; margin-right: 8px; background: white; border-radius: 4px; padding: 2px;">
+                                    Apache Flink
+                                  </li>
+                              <li>
+                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/apachespark/apachespark-original.svg" alt="Spark" class="skill-icon">
+                                Apache Spark
+                              </li>
+                                                            
                         </ul>
                     </div>
 
                     <div class="skill-category">
                         <h3>Cloud Platforms</h3>
                         <ul class="skill-list">
-                            <li>AWS (S3, Redshift, EMR)</li>
-                            <li>Azure (Synapse, Data Factory)</li>
-                            <li>Google Cloud Platform</li>
-                            <li>Snowflake</li>
+                            <li>
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/amazonaws.svg" alt="AWS" class="skill-icon" style="filter: invert(100%);">
+                                AWS (S3, Redshift, EMR)
+                              </li>
+                              
+                              <li>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg"
+                                     alt="Azure"
+                                     class="skill-icon"
+                                     style="height: 20px; vertical-align: middle; margin-right: 8px;">
+                                <span style="display: inline-block; vertical-align: middle; max-width: 160px;">
+                                  Azure (Synapse, Data Factory)
+                                </span>
+                              </li>
+                              
+                              <li>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="GCP" class="skill-icon">
+                                Google Cloud Platform
+                              </li>
+                              <li>
+                                <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/snowflake.svg" alt="Snowflake" class="skill-icon" style="filter: invert(1);">
+                                Snowflake
+                              </li>
                         </ul>
                     </div>
 
                     <div class="skill-category">
                         <h3>Data Visualization</h3>
                         <ul class="skill-list">
-                            <li>Tableau</li>
-                            <li>Looker</li>
-                            <li>Power BI</li>
-                            <li>Apache Superset</li>
+                            <li>
+                                <img src="https://img.icons8.com/ios-filled/50/ffffff/tableau-software.png" alt="Tableau" class="skill-icon">
+                                Tableau
+                              </li>
+                                                           
+                              <li>
+                                <img src="https://raw.githubusercontent.com/gilbarbara/logos/main/logos/looker-icon.svg" alt="Looker" class="skill-icon">
+                                Looker
+                              </li>
+                              <li>
+                                <img src="https://img.icons8.com/color/48/000000/power-bi.png" alt="Power BI" class="skill-icon">
+                                Power BI
+                              </li>
+                              <li>
+                                <img src="https://images.seeklogo.com/logo-png/50/1/superset-icon-logo-png_seeklogo-500354.png"
+                                     alt="Apache Superset"
+                                     class="skill-icon"
+                                     style="height: 20px; vertical-align: middle; margin-right: 8px; background: white; border-radius: 4px; padding: 2px;">
+                                Apache Superset
+                              </li>
+                              
+                              
+                              
+                              
+                              
                         </ul>
                     </div>
 
                     <div class="skill-category">
                         <h3>Databases</h3>
                         <ul class="skill-list">
-                            <li>PostgreSQL</li>
-                            <li>MongoDB</li>
-                            <li>Cassandra</li>
-                            <li>Redis</li>
+                            <li>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="skill-icon">
+                                PostgreSQL
+                              </li>
+                              <li>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" class="skill-icon">
+                                MongoDB
+                              </li>
+                              <li>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cassandra/cassandra-original.svg" alt="Cassandra" class="skill-icon">
+                                Cassandra
+                              </li>
+                              <li>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis" class="skill-icon">
+                                Redis
+                              </li>
+                              
                         </ul>
                     </div>
 
                     <div class="skill-category">
                         <h3>DevOps & Tools</h3>
                         <ul class="skill-list">
-                            <li>Docker</li>
-                            <li>Kubernetes</li>
-                            <li>Git</li>
-                            <li>Jenkins</li>
+                            <li>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="skill-icon">
+                                Docker
+                              </li>
+                              <li>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" class="skill-icon">
+                                Kubernetes
+                              </li>
+                              <li>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="skill-icon">
+                                Git
+                              </li>
+                              <li>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" alt="Jenkins" class="skill-icon">
+                                Jenkins
+                              </li>
                         </ul>
                     </div>
                 </div>
             </section>
 
             <!-- Certifications Section -->
-            <section id="certifications" data-aos="fade-up" data-aos-delay="150">
-                <h2 class="section-title">Certifications</h2>
+            <section id="certifications">
+                <h2 class="section-title" data-aos="fade-up">Certifications</h2>
                 <div class="projects-grid">
                     <div class="project-card">
                         <h3 class="project-title">AWS Certified Developer – Associate</h3>
@@ -686,100 +1105,199 @@
                 </div>
             </section>
 
-            <!-- Experience Section -->
-            <section id="experience" data-aos="fade-up" data-aos-delay="200">
-                <h2 class="section-title">Professional Experience</h2>
-                <div class="about-content">
-                    <div style="margin-bottom: 30px; padding: 25px; border-left: 4px solid #6366f1; background: rgba(99, 102, 241, 0.1);">
-                        <h3 style="color: #f8fafc; font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;">Data Engineer</h3>
-                        <p style="color: #cbd5e1; font-size: 1rem; margin-bottom: 15px; font-weight: 500;">Payoneer • October 2023 - Present</p>
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="margin-bottom: 8px; color: #e2e8f0;">• Designed event-driven ingestion architecture using Apache Kafka (AWS MSK) and Avro schemas for real-time fraud detection</li>
-                            <li style="margin-bottom: 8px; color: #e2e8f0;">• Developed streaming jobs with Apache Flink, integrating real-time ML inference via AWS SageMaker, improving anomaly detection by 28% and reducing latency by 38%</li>
-                            <li style="margin-bottom: 8px; color: #e2e8f0;">• Built incremental ETL pipelines using Spark Structured Streaming, loading enriched data into Snowflake, improving batch performance by 25%</li>
-                            <li style="margin-bottom: 8px; color: #e2e8f0;">• Automated data workflows using Apache Airflow on AWS EC2 with dynamic DAGs, increasing reliability and training data freshness by 30%</li>
-                            <li style="color: #e2e8f0;">• Designed GDPR- and PCI DSS-compliant data models in Snowflake, improving Looker dashboard query speed by 50%</li>
-                        </ul>
-                    </div>
+                <!-- Experience Section -->
+                    <section id="experience" data-aos="fade-up" data-aos-delay="100">
+                     
+                        <h2 class="section-title">Professional Experience</h2>
+                    
+                        <!-- PAYONEER DE -->
+                        <div class="project-card">
+                            <div class="experience-header">
+                            <div>
+                                <h3 class="project-title">Data Engineer</h3>
+                                <a href="https://www.payoneer.com/" class="company-name" target="_blank">Payoneer</a>
+                            </div>
+                            <div class="meta-info">
+                                <span>Oct 2023 – Present</span>
+                                <span>Remote</span>
+                            </div>
+                            </div>
+                            <ul class="job-points">
+                                <li>Built Kafka (MSK) pipelines with Avro for real-time fraud detection across cross-border transactions.</li>
+                                <li>Improved uptime to 99.95% by tuning partitions, enabling log compaction, and integrating CloudWatch alerts.</li>
+                                <li>Deployed ML fraud inference via Flink + async SageMaker; reduced detection latency by 38%.</li>
+                                <li>Architected Spark ETL from Cassandra to Snowflake, boosting batch efficiency 25% and cutting storage overhead.</li>
+                                <li>Automated EC2-based Airflow with dynamic DAGs and SLA retries, minimizing pipeline failures.</li>
+                                <li>Designed Snowflake schemas with row-level security for GDPR/PCI compliance; BI queries ran 50% faster.</li>
+                            </ul>
+                            <div class="tech-section">
+                                <p class="tech-label">Key Technologies:</p>
+                                <div class="project-tech">
+                                  <span class="tech-tag"> Kafka</span>
+                                  <span class="tech-tag">Flink</span>
+                                  <span class="tech-tag">SageMaker</span>
+                                  <span class="tech-tag">Airflow</span>
+                                  <span class="tech-tag">Snowflake</span>
+                                  <span class="tech-tag">Spark</span>
+                                  <span class="tech-tag">EC2</span>
+                                </div>
+                            </div>
+                        </div>
 
-                    <div style="margin-bottom: 30px; padding: 25px; border-left: 4px solid #8b5cf6; background: rgba(99, 102, 241, 0.1);">
-                        <h3 style="color: #f8fafc; font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;">Data Engineer</h3>
-                        <p style="color: #cbd5e1; font-size: 1rem; margin-bottom: 15px; font-weight: 500;">Verizon • January 2021 - July 2022</p>
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="margin-bottom: 8px; color: #e2e8f0;">• Developed data ingestion pipelines using Apache Kafka and Azure Event Hubs, increasing data accuracy by 30% and reducing data loss by 25%</li>
-                            <li style="margin-bottom: 8px; color: #e2e8f0;">• Implemented real-time stream processing with Apache Flink and Azure Stream Analytics, achieving 99.9% SLA compliance</li>
-                            <li style="margin-bottom: 8px; color: #e2e8f0;">• Built distributed storage systems with Hadoop HDFS and Cassandra, integrated into Azure Synapse to improve analytics performance by 35%</li>
-                            <li style="margin-bottom: 8px; color: #e2e8f0;">• Set up real-time monitoring with Grafana and Prometheus, enabling proactive alerts and 25% faster incident resolution</li>
-                            <li style="color: #e2e8f0;">• Automated ETL workflows using Apache Airflow on Azure Databricks, reducing manual work by 60%</li>
-                        </ul>
-                    </div>
-
-                    <div style="margin-bottom: 30px; padding: 25px; border-left: 4px solid #d946ef; background: rgba(99, 102, 241, 0.1);">
-                        <h3 style="color: #f8fafc; font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;">Data Analyst</h3>
-                        <p style="color: #cbd5e1; font-size: 1rem; margin-bottom: 15px; font-weight: 500;">Verizon • January 2020 - December 2020</p>
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="margin-bottom: 8px; color: #e2e8f0;">• Analyzed usage, billing, and complaint data from SQL Server, defining key churn metrics and improving customer segmentation</li>
-                            <li style="margin-bottom: 8px; color: #e2e8f0;">• Wrote advanced SQL queries using window functions and joins to extract insights from over 2M+ customer records</li>
-                            <li style="margin-bottom: 8px; color: #e2e8f0;">• Performed exploratory data analysis using Python (pandas, matplotlib) to identify trends and correlations in churn behavior</li>
-                            <li style="color: #e2e8f0;">• Built interactive Tableau dashboards for visualizing churn trends, campaign impact, and cohort analysis for real-time decision making</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Education Section -->
-            <section id="education" data-aos="fade-up" data-aos-delay="250">
+                        <!-- VERIZON DE -->
+                        <div class="project-card">
+                            <div class="experience-header">
+                            <div>
+                                <h3 class="project-title">Data Engineer</h3>
+                                <a href="https://www.verizon.com/" class="company-name" target="_blank">Verizon</a>
+                            </div>
+                            <div class="meta-info">
+                                <span>Jan 2021 – Jul 2022</span>
+                                <span>Hyderabad, India</span>
+                            </div>
+                            </div>
+                            <ul class="job-points">
+                                <li>Built Kafka + Azure Event Hubs pipelines for real-time telecom metrics; reduced data loss by 25%.</li>
+                                <li>Enabled SLA dashboards with Flink + Azure Stream Analytics; achieved 99.9% real-time alerting.</li>
+                                <li>Designed hybrid storage using HDFS + Cassandra, synced to Synapse; dashboard query speed improved 35%.</li>
+                                <li>Integrated Prometheus and Grafana for network alerting; cut incident resolution time by 25%.</li>
+                                <li>Developed ETL pipelines with Airflow + Databricks; git-backed DAGs cut manual ops by 60%, improved data quality 45%.</li>
+                              </ul>
+                            <div class="tech-section">
+                                <p class="tech-label">Key Technologies:</p>
+                                <div class="project-tech">
+                                  <span class="tech-tag">Kafka</span>
+                                  <span class="tech-tag">Azure</span>
+                                  <span class="tech-tag">Flink</span>
+                                  <span class="tech-tag">Airflow</span>
+                                  <span class="tech-tag">Grafana</span>
+                                </div>
+                              </div>
+                            </div>
+                    
+                        <!-- VERIZON DA -->
+                        <div class="project-card">
+                            <div class="experience-header">
+                            <div>
+                                <h3 class="project-title">Data Analyst</h3>
+                                <a href="https://www.verizon.com/" class="company-name" target="_blank">Verizon</a>
+                            </div>
+                            <div class="meta-info">
+                                <span>Jan 2020 – Dec 2020</span>
+                                <span>Hyderabad, India</span>
+                            </div>
+                            </div>
+                            <ul class="job-points">
+                                <li>Unified SQL Server data to define a consistent churn metric for Marketing and CX alignment.</li>
+                                <li>Built advanced SQL pipelines with window functions and joins; processed 2M+ records with reduced ETL load times.</li>
+                                <li>Conducted EDA using pandas/matplotlib; uncovered billing issues and usage drops as key churn drivers.</li>
+                                <li>Integrated churn predictions into risk segments to enhance retention targeting and campaign focus.</li>
+                                <li>Developed Tableau dashboards with cohort filters; enabled real-time insights and faster decision-making.</li>
+                            </ul>
+                            <div class="tech-section">
+                                <p class="tech-label">Key Technologies:</p>
+                                <div class="project-tech">
+                                  <span class="tech-tag">SQL</span>
+                                  <span class="tech-tag">Python</span>
+                                  <span class="tech-tag">Tableau</span>
+                                  <span class="tech-tag">pandas</span>
+                                </div>
+                              </div>
+                        </div>
+                     </div>
+                    </section>
+     <!-- Education Section -->
+        <!--masters-->  
+            <section id="education" data-aos="fade-up" data-aos-delay="100">
+                <div class="container">
                 <h2 class="section-title">Education</h2>
-                <div class="about-content">
-                    <div style="margin-bottom: 30px; padding: 25px; border-left: 4px solid #6366f1; background: rgba(99, 102, 241, 0.1);">
-                        <h3 style="color: #f8fafc; font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;">Master's Degree, Information Technology</h3>
-                        <p style="color: #cbd5e1; font-size: 1rem; margin-bottom: 15px; font-weight: 500;">California State University, Long Beach • August 2022 - May 2024</p>
-                        <p style="color: #e2e8f0;">Advanced studies in data engineering, cloud computing, and information systems with focus on scalable data architectures and real-time processing systems.</p>
+                <div class="project-card">
+                    <div class="experience-header">
+                      <div>
+                        <h3 class="project-title">Master's in Information Technology</h3>
+                        <p class="company-name">California State University Long Beach</p>
+                      </div>
+                      <div class="meta-info">
+                        <span>Aug 2022 – May 2024</span>
+                        <span>Long Beach, CA</span>
+                      </div>
                     </div>
+                    <ul class="job-points">
+                      <li>Advanced studies in data engineering, cloud computing, and information systems with focus on scalable data architectures and real-time processing systems.</li>     
+                    </ul>
+                  </div>
+                <!--bachelors-->
+                <div class="project-card">
+                    <div class="experience-header">
+                      <div>
+                        <h3 class="project-title">Bachelor's in Electrical and Electronics Engineering</h3>
+                        <p class="company-name">Jawaharlal Nehru Technological University</p>
+                      </div>
+                      <div class="meta-info">
+                        <span>Jul 2016 – May 2020</span>
+                        <span>Hyderabad, India</span>
+                      </div>
+                    </div>
+                    <ul class="job-points">
+                      <li>Strong foundation in electronics, mathematics, and computer science with coursework in digital systems, control theory, and basic programming.</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+              
 
-                    <div style="margin-bottom: 30px; padding: 25px; border-left: 4px solid #8b5cf6; background: rgba(139, 92, 246, 0.1);">
-                        <h3 style="color: #f8fafc; font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;">Bachelor of Technology - Electrical and Electronics Engineering</h3>
-                        <p style="color: #cbd5e1; font-size: 1rem; margin-bottom: 15px; font-weight: 500;">Sreenidhi Institute of Science and Technology • August 2016 - June 2020</p>
-                        <p style="color: #e2e8f0;">Strong foundation in engineering fundamentals, mathematics, and problem-solving with coursework in digital systems, programming, and data analysis.</p>
-                    </div>
-                </div>
-            </section>
+            
+             <!-- Resume Section -->
+             <section id="resume">
+                <div class="container">               
+                    <h2 class="section-title">Resume</h2>
+                    
+                    <div class="project-card resume-style">
 
-            <!-- Resume Section -->
-            <section id="resume" data-aos="zoom-in" data-aos-delay="300">
-                <h2 class="section-title">Resume</h2>
-                <div class="resume-section">
-                    <p style="margin-bottom: 20px; color: #cbd5e1;">Download my complete resume to learn more about my experience and qualifications.</p>
-                    <a href="https://raw.githubusercontent.com/RaviTeja5398/sairaviteja-portfolio/main/SaiRaviTeja_DE_Resume.pdf" class="download-btn" target="_blank">Download Resume</a>
-                </div>
-            </section>
-        
-            <!-- Contact Section -->
-            <section id="contact" data-aos="fade-up" data-aos-delay="350">
-                <h2 class="section-title">Get In Touch</h2>
-                <div class="contact-info">
-                    <p>I'm always interested in discussing new opportunities and exciting data engineering challenges.</p>
-                    <div style="margin-top: 30px; display: flex; flex-direction: column; gap: 15px; align-items: center;">
-                        <p>
-                            Email: <a href="mailto:sai@mycareermail.com">sai@mycareermail.com</a>
-                        </p>
-                        <p>
-                            Phone: <a href="tel:+15625759775">(562) 575-9775</a>
-                        </p>
-                        <p>
-                            LinkedIn: <a href="https://www.linkedin.com/in/raviteja53/" target="_blank" rel="noopener noreferrer">linkedin.com/in/raviteja53</a>
-                        </p>
+                    <p class="project-description">Want a quick snapshot of my work and background?</p>
+                    <a href="https://raw.githubusercontent.com/RaviTeja5398/sairaviteja-portfolio/main/SaiRaviTeja_DE_Resume.pdf" class="resume-btn" target="_blank">
+                        <i class="ph ph-download-simple"></i> Download Resume
+                    </a>
                     </div>
                 </div>
-            </section>
+                </section>
+              
+  
+  <!-- Contact Section -->
+  <section id="contact" data-aos="fade-up">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      
+        <div class="project-card resume-style">
+        <p class="project-description">
+          Let’s talk about data, systems, or ideas. I’m open to freelance, full-time, or just good conversation.
+        </p>
+        <div class="contact-grid">
+          <div>
+            <a href="mailto:sai@mycareermail.com">
+              <i class="ph ph-envelope"></i> sai@mycareermail.com
+            </a>
+          </div>
+          <div>
+            <a href="tel:+15625759775">
+              <i class="ph ph-phone"></i> (562) 575-9775
+            </a>
+          </div>
+          <div>
+            <a href="https://www.linkedin.com/in/raviteja53/" target="_blank">
+              <i class="ph ph-linkedin-logo"></i> linkedin.com/in/raviteja53
+            </a>
+          </div>
         </div>
-    </main>
+      </div>
+    </div>
+  </section>
+  
+
 
     <!-- Footer -->
     <footer>
-        <div class="container">
             <p>&copy; 2025 Sai Ravi Teja. All rights reserved.</p>
-        </div>
     </footer>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
